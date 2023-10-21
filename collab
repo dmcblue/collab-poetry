@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+const terminal = require('./terminal');
+const collab = require('./collab.js');
+
+const collabCount = parseInt(terminal.getArg(0, 'Collaborator Count', 'Number of Participants'));
+if (isNaN(collabCount)) {
+    terminal.error('Invalid argument, must be number', 2);
+}
+const themesArg = terminal.getArg(1, 'Themes', 'CSV String of poems themes');
+if (themesArg.length < 1) {
+    terminal.error('No themes provided');
+}
+const themes = themesArg.split(',');
+
+const [works, collabs] = collab.createExercise(collabCount, themes);
+
+console.log('Poem Report');
+console.table(works, ['subject', 'lineCount', 'syllablesRange', 'schemeType']);
+
+for (let collab of collabs) {
+	console.log('------');
+	console.table(collab, ['id', 'theme', 'range', 'rhyme']);
+}
