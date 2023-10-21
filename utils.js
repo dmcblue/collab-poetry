@@ -11,8 +11,17 @@ function randomInteger(min, max) {
 module.exports.randomInteger = randomInteger;
 
 function randomizeArray(arr) {
-    
-}
+    const newArray = [];
+    const indices = Object.keys(arr);
+    while (indices.length > 0) {
+        const i = randomInteger(indices.length);
+        newArray.push(arr[indices[i]]);
+        indices.splice(i, 1);
+    }
+
+    return newArray;
+};
+module.exports.randomizeArray = randomizeArray;
 
 function randomOfArray(arr, excluding = []) {
     const newArr = arr.filter(item => !excluding.includes(item));

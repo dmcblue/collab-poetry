@@ -97,6 +97,10 @@ function createExercise(collabCount, themes) {
         i = (i + 1) % collabCount;
     }
 
+    for (let i = 0, ilen = collabs.length; i < ilen; i++) {
+        collabs[i] = utils.randomizeArray(collabs[i]);
+    }
+
     return [works, collabs];
 }
 module.exports.createExercise = createExercise;
