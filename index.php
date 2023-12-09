@@ -108,10 +108,11 @@
 		<script src="https://unpkg.com/jspdf-autotable@3.8.0/dist/jspdf.plugin.autotable.js"></script>
 		<script>
 			function go() {
-				const collabCount = parseInt(document.getElementById('collabCount').value);
+				const collaborators = document.getElementById('collabCount').value.split("\n");
+				const collabCount = collaborators.length;
 				const themes = document.getElementById('themes').value.split("\n");
 				const [works, collabs] = createExercise(collabCount, themes);
-				// console.log(works, collabs);
+
 				const tables = [];
 				const doc = new jspdf.jsPDF({
 					orientation: "portrait",
@@ -124,7 +125,9 @@
 						return Object.assign(row, {text: ''});
 					});
 
+					doc.text(collaborators[i], 0.55, 0.65);
 					doc.autoTable({
+						startY: 0.85,
 						styles: { halign: 'center' },
   						bodyStyles: { minCellHeight: 0.5, valign: 'middle' },
 						columnStyles: {
@@ -156,22 +159,25 @@
 			</h1>
 		</header>
 		<section class="page-row page-row-expanded">
-			<div class="row">
-				<label for="collabCount">
-					# of Participants
-				</label>
-				<input id="collabCount" type="number" min="0" value="1" />
-			</div>
-			<div class="row">
-				<label for="themes">
-					Themes
-					<span>Each on its own line</span>
-				</label>
-				<textarea id="themes"></textarea>
-			</div>
-			<div class="row">
-				<label></label>
-				<button onclick="go()">Button</button>
+			<div class="table">
+				<div class="row">
+					<label for="collabCount">
+						Names of Participants
+						<span>Each on its own line</span>
+					</label>
+					<textarea id="collabCount" rows="5" cols="33"></textarea>
+				</div>
+				<div class="row">
+					<label for="themes">
+						Themes
+						<span>Each on its own line</span>
+					</label>
+					<textarea id="themes" rows="5" cols="33"></textarea>
+				</div>
+				<div class="row">
+					<label></label>
+					<button onclick="go()">Create!</button>
+				</div>
 			</div>
 		</section>
 		<footer class="page-row">

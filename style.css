@@ -1,19 +1,43 @@
-/*
- * Primary: #60F094, #49A36A
- * Seconday: #48A2F0, #296BA3
- * Accent: #F08855
- *
- */
+/* CSS - Cascading Style Sheet */
+/* Palette color codes */
+/* Palette URL: http://paletton.com/#uid=7000u0kllllaFw0g0qFqFg0w0aF */
+
+
+/* As hex codes */
+
+.color-primary-0 { color: #AA3939 }	/* Main Primary color */
+.color-primary-1 { color: #FFAAAA }
+.color-primary-2 { color: #D46A6A }
+.color-primary-3 { color: #801515 }
+.color-primary-4 { color: #550000 }
+
+.color-secondary-1-0 { color: #AA6C39 }	/* Main Secondary color (1) */
+.color-secondary-1-1 { color: #FFD1AA }
+.color-secondary-1-2 { color: #D49A6A }
+.color-secondary-1-3 { color: #804515 }
+.color-secondary-1-4 { color: #552700 }
+
+.color-secondary-2-0 { color: #226666 }	/* Main Secondary color (2) */
+.color-secondary-2-1 { color: #669999 }
+.color-secondary-2-2 { color: #407F7F }
+.color-secondary-2-3 { color: #0D4D4D }
+.color-secondary-2-4 { color: #003333 }
+
+.color-complement-0 { color: #2D882D }	/* Main Complement color */
+.color-complement-1 { color: #88CC88 }
+.color-complement-2 { color: #55AA55 }
+.color-complement-3 { color: #116611 }
+.color-complement-4 { color: #004400 }
 
  * {
-	background: #60F094;
+	background: #FFAAAA;
 	margin: 0;
 	padding: 0;
 	font-family: "Rubik", sans-serif;
 	font-weight: 300;
 	font-size: 1rem;
 	line-height: 1.4em;
-	color: #296BA3;
+	color: #550000;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -30,8 +54,8 @@ h1, .h1, h2, .h2, h3, .h3, h1 > a, .h1 > a, h2 > a, .h2 > a, h3 > a, .h3 > a {
 h1, .h1, h1 > a, .h1 > a, h1 > em, .h1 > em {
 	font-size: 2rem;
 	font-weight: 400;
-	color: #296BA3;
-	border-bottom: 1px solid #296BA3;
+	color: #801515;
+	border-bottom: 1px solid #801515;
 	margin: 1.6rem 0 1rem;
 	text-decoration: none;
 }
@@ -52,7 +76,7 @@ h2, .h2, h2 > a, .h2 > a, h2 > em, .h2 > em {
 h3, .h3, h3 > a, .h3 > a, h3 > em, .h3 > em {
 	font-size: 1.2rem;
 	font-weight: 400;
-	color: #296BA3;
+	color: #550000;
 	margin: 1rem 0 0.5rem;
 }
 body {
@@ -103,8 +127,13 @@ header,
 footer {
 	text-align: center;
 }
-header h1 {
+header {
+	background: #D46A6A;
+}
+header h1:first-child {
 	position: relative;
+	background: inherit;
+	margin-bottom: 0;
 }
 header h1 button.control {
 	position:absolute;
@@ -118,13 +147,13 @@ footer.page-row > * {
 input,
 textarea {
 	background: white;
-	border: 1px solid #296BA3;
+	border: 1px solid #550000;
 }
 
 button {
-	color: #802805;
-	background: #F08855;
-	border: 1px solid #802805;
+	color: #003333;
+	background: #407F7F;
+	border: 1px solid #407F7F;
 	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
@@ -135,9 +164,14 @@ button:hover {
 button:active {
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
-
+.table {
+	display: table;
+}
 .row {
 	display: table-row;
+}
+.page-row-expanded div:first {
+	padding-top: 2em;
 }
 
 .row label,
@@ -150,6 +184,12 @@ button:active {
 
 .row label {
 	padding: 1em;
+}
+
+label > span {
+	font-size: 90%;
+	display: block;
+	opacity: 0.8;
 }
 
 .row input,
