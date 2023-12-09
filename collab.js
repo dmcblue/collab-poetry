@@ -76,7 +76,8 @@ function createExercise(collabCount, themes) {
                 id: i,
                 theme: work.subject,
                 range: `${work.syllablesRange[0]} - ${work.syllablesRange[1]}`,
-                rhyme: rhyme
+                rhyme: rhyme,
+                rhymesWith: utils.randomOfArray(rhymes[rhyme])
             });
             i++;
         }

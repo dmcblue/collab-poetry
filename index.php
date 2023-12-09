@@ -1,8 +1,8 @@
 <?php
-    $BASE_URL = $_ENV['BASE_URL'];
-    $SITE_NAME = $_ENV['SITE_NAME'];
-    $JSON_BASE_URL = json_encode($BASE_URL);
-    $DESCRIPTION = "";
+	$BASE_URL = $_ENV['BASE_URL'];
+	$SITE_NAME = $_ENV['SITE_NAME'];
+	$JSON_BASE_URL = json_encode($BASE_URL);
+	$DESCRIPTION = "";
 ?><!DOCTYPE html>
 <html lang="en-US">
 	<head>
@@ -50,113 +50,136 @@
 			<!-- END TwitterCard -->
 			<!-- Json LD -->
 			<script type='application/ld+json'>{
-                "@context":"https:\/\/schema.org",
-                "@graph":[{
-                    "@type":"WebSite","@id":"<?= $JSON_BASE_URL; ?>\/",
-                    "url":"<?= $JSON_BASE_URL; ?>\/",
-                    "name":"<?= $SITE_NAME; ?>",
-                    "publisher":{"@id":"https:\/\/www.dmcblue.com\/about"}
-                },{
-                    "@type":"ImageObject",
-                    "@id":"<?= $JSON_BASE_URL; ?>\/opengraph.png",
-                    "url":"<?= $JSON_BASE_URL; ?>\/opengraph.png",
-                    "width":1273,
-                    "height":775
-                },{
-                    "@type":"WebPage",
-                    "@id":"<?= $JSON_BASE_URL; ?>\/",
-                    "url":"<?= $JSON_BASE_URL; ?>\/",
-                    "inLanguage":"en-US",
-                    "name":"dmcblue",
-                    "isPartOf":{"@id":"<?= $JSON_BASE_URL; ?>\/"},
-                    "primaryImageOfPage":{"@id":"<?= $JSON_BASE_URL; ?>\/opengraph.png"},
-                    "datePublished":null,"dateModified":null
-                },{
-                    "@type":"Article",
-                    "@id":"<?= $JSON_BASE_URL; ?>\/",
-                    "isPartOf":{"@id":"<?= $JSON_BASE_URL; ?>\/"},
-                    "author":{"@id":"<?= $JSON_BASE_URL; ?>\/about"},
-                    "headline":"dmcblue",
-                    "datePublished":null,
-                    "dateModified":null,
-                    "commentCount":0,
-                    "mainEntityOfPage":{"@id":"<?= $JSON_BASE_URL; ?>\/"},
-                    "publisher":{"@id":"<?= $JSON_BASE_URL; ?>\/about"},
-                    "image":{"@id":"<?= $JSON_BASE_URL; ?>\/opengraph.png"},
-                    "keywords":"",
-                    "articleSection":""
-                },{
-                    "@type":["Person"],
-                    "@id":"https:\/\/www.dmcblue.com\/about",
-                    "name":"dmcblue",
-                    "image":{
-                        "@type":"ImageObject",
-                        "@id":"\/opengraph.png",
-                        "url":"\/opengraph.png",
-                        "caption":"dmcblue"
-                    },
-                    "sameAs":[]
-                }]
-            }</script>
+				"@context":"https:\/\/schema.org",
+				"@graph":[{
+					"@type":"WebSite","@id":"<?= $JSON_BASE_URL; ?>\/",
+					"url":"<?= $JSON_BASE_URL; ?>\/",
+					"name":"<?= $SITE_NAME; ?>",
+					"publisher":{"@id":"https:\/\/www.dmcblue.com\/about"}
+				},{
+					"@type":"ImageObject",
+					"@id":"<?= $JSON_BASE_URL; ?>\/opengraph.png",
+					"url":"<?= $JSON_BASE_URL; ?>\/opengraph.png",
+					"width":1273,
+					"height":775
+				},{
+					"@type":"WebPage",
+					"@id":"<?= $JSON_BASE_URL; ?>\/",
+					"url":"<?= $JSON_BASE_URL; ?>\/",
+					"inLanguage":"en-US",
+					"name":"dmcblue",
+					"isPartOf":{"@id":"<?= $JSON_BASE_URL; ?>\/"},
+					"primaryImageOfPage":{"@id":"<?= $JSON_BASE_URL; ?>\/opengraph.png"},
+					"datePublished":null,"dateModified":null
+				},{
+					"@type":"Article",
+					"@id":"<?= $JSON_BASE_URL; ?>\/",
+					"isPartOf":{"@id":"<?= $JSON_BASE_URL; ?>\/"},
+					"author":{"@id":"<?= $JSON_BASE_URL; ?>\/about"},
+					"headline":"dmcblue",
+					"datePublished":null,
+					"dateModified":null,
+					"commentCount":0,
+					"mainEntityOfPage":{"@id":"<?= $JSON_BASE_URL; ?>\/"},
+					"publisher":{"@id":"<?= $JSON_BASE_URL; ?>\/about"},
+					"image":{"@id":"<?= $JSON_BASE_URL; ?>\/opengraph.png"},
+					"keywords":"",
+					"articleSection":""
+				},{
+					"@type":["Person"],
+					"@id":"https:\/\/www.dmcblue.com\/about",
+					"name":"dmcblue",
+					"image":{
+						"@type":"ImageObject",
+						"@id":"\/opengraph.png",
+						"url":"\/opengraph.png",
+						"caption":"dmcblue"
+					},
+					"sameAs":[]
+				}]
+			}</script>
 			<!-- END Json LD -->
 		<!-- END Metadata -->
 
-        <style>
-            <?= file_get_contents('style.css'); ?>
-        </style>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-        <script>
-            // createExercise(collabCount, themes)
-            function go() {
-                console.log('hi');
-                const collabCount = parseInt(document.getElementById('collabCount').value);
-                const themes = document.getElementById('themes').value.split("\n");
-                const [works, collabs] = createExercise(collabCount, themes);
-                console.log(works, collabs);
-                console.table(collabs[1], ['id', 'theme', 'range', 'rhyme']);
-                const doc = new jspdf.jsPDF({
-                    orientation: "portrait",
-                    unit: "in",
-                    format: "letter"
-                });
+		<style>
+			<?= file_get_contents('style.css'); ?>
+		</style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+		<script src="https://unpkg.com/jspdf-autotable@3.8.0/dist/jspdf.plugin.autotable.js"></script>
+		<script>
+			function go() {
+				const collabCount = parseInt(document.getElementById('collabCount').value);
+				const themes = document.getElementById('themes').value.split("\n");
+				const [works, collabs] = createExercise(collabCount, themes);
+				// console.log(works, collabs);
+				const tables = [];
+				const doc = new jspdf.jsPDF({
+					orientation: "portrait",
+					unit: "in",
+					format: "letter"
+				});
 
-                // for (let i = 0, ilen = collabs.length; i < ilen; i++)
-                doc.text("Hello world!", 1, 1);
-                doc.save("two-by-four.pdf");
-            }
-        </script>
+				for(let i in collabs) {
+					const collab = collabs[i].map((row) => {
+						return Object.assign(row, {text: ''});
+					});
+
+					doc.autoTable({
+						styles: { halign: 'center' },
+  						bodyStyles: { minCellHeight: 0.5, valign: 'middle' },
+						columnStyles: {
+							id: { textColor: [155, 155, 155], },
+							text: { minCellWidth: '4' }
+						},
+						body: collab,
+						columns: [
+							{ header: 'id', dataKey: 'id' },
+							{ header: 'Theme', dataKey: 'theme' },
+							{ header: '# Syllables', dataKey: 'range' },
+							{ header: 'Rhymes With', dataKey: 'rhymesWith' },
+							{ header: '', dataKey: 'text' },
+						],
+					});
+					if (i < collabs.length - 1) {
+						doc.addPage("letter", "portrait")
+					}
+				}
+
+				doc.save("poems.pdf");
+			}
+		</script>
 	</head>
 	<body>
-        <header class="page-row">
-            <h1>
-                Collaborative Poetry
-            </h1>
-        </header>
-        <section class="page-row page-row-expanded">
-            <div class="row">
-                <label for="collabCount">
-                    # of Participants
-                </label>
-                <input id="collabCount" type="number" min="0" value="1" />
-            </div>
-            <div class="row">
-                <label for="themes">
-                    Themes
-                    <span>Each on its own line</span>
-                </label>
-                <textarea id="themes"></textarea>
-            </div>
-            <div class="row">
-                <label></label>
-                <button onclick="go()">Button</button>
-            </div>
-        </section>
-        <footer class="page-row">
-            <div>
-                &copy; <?= (new DateTime())->format('Y') ?> dmcblue - <a href="https://github.com/dmcblue/collab-poetry" target="_blank">source</a>
-            </div>
-        </footer>
+		<header class="page-row">
+			<h1>
+				Collaborative Poetry
+			</h1>
+		</header>
+		<section class="page-row page-row-expanded">
+			<div class="row">
+				<label for="collabCount">
+					# of Participants
+				</label>
+				<input id="collabCount" type="number" min="0" value="1" />
+			</div>
+			<div class="row">
+				<label for="themes">
+					Themes
+					<span>Each on its own line</span>
+				</label>
+				<textarea id="themes"></textarea>
+			</div>
+			<div class="row">
+				<label></label>
+				<button onclick="go()">Button</button>
+			</div>
+		</section>
+		<footer class="page-row">
+			<div>
+				&copy; <?= (new DateTime())->format('Y') ?> dmcblue - <a href="https://github.com/dmcblue/collab-poetry" target="_blank">source</a>
+			</div>
+		</footer>
 
-        <script type="text/javascript" src="index.js"></script>
+		<script type="text/javascript" src="index.js"></script>
 	</body>
 </html>
