@@ -162,6 +162,29 @@
 		<section class="page-row page-row-expanded">
 			<div class="table">
 				<div class="row">
+					<p>
+						This is a collaborative art activity that provides a low-stakes way for people
+						to interact with poetry.
+					</p>
+					<p>
+						The below tool accepts a list of participants and a list of themes.
+						It them creates a poetic rhyme scheme for each theme and assigns the lines of
+						the scheme to the participants, randomzing their order.
+					</p>
+					<p>
+						Thus, each participant receives a list of lines to fill out, each with a theme,
+						a syllable length for the line and rhyme sound that the line should end with.
+						They fill out each line not knowing the rest of the poems content, so they just
+						respond to the theme with a single creative line.
+					</p>
+					<p>
+						Then the page can be cut up line by line and all the lines can be ordered according
+						to their <strong><em>&ldquo;id&rdquo;</em></strong>, creating complete, rhyming poems for each theme.
+					</p>
+				</div>
+			</div>
+			<div class="table">
+				<div class="row">
 					<label for="collabCount">
 						Names of Participants
 						<span>Each on its own line</span>

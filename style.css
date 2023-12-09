@@ -165,14 +165,23 @@ button:hover {
 button:active {
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
+p {
+	margin-bottom: 1em;
+}
 .table {
 	display: table;
 }
 .row {
 	display: table-row;
 }
-.page-row-expanded div:first {
+.page-row-expanded div:first-child {
 	padding-top: 2em;
+}
+.page-row-expanded div:first-child div {
+	text-align: left;
+}
+.page-row-expanded > div {
+	width: 600px;
 }
 
 .row label,
