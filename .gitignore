@@ -1,2 +1,10 @@
+# secrets
+/.env
+
+# packages
 /node_modules
+/vendor/
+
+# build files
 /public/index.js
+/public/index.html

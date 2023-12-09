@@ -1,0 +1,170 @@
+/*
+ * Primary: #60F094, #49A36A
+ * Seconday: #48A2F0, #296BA3
+ * Accent: #F08855
+ *
+ */
+
+ * {
+	background: #60F094;
+	margin: 0;
+	padding: 0;
+	font-family: "Rubik", sans-serif;
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 1.4em;
+	color: #296BA3;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	width: 100%;
+}
+h1, .h1, h2, .h2, h3, .h3, h1 > a, .h1 > a, h2 > a, .h2 > a, h3 > a, .h3 > a {
+	text-decoration: none;
+}
+h1, .h1, h1 > a, .h1 > a, h1 > em, .h1 > em {
+	font-size: 2rem;
+	font-weight: 400;
+	color: #296BA3;
+	border-bottom: 1px solid #296BA3;
+	margin: 1.6rem 0 1rem;
+	text-decoration: none;
+}
+h1 > a {
+	text-decoration: none !important;
+	text-decoration-color: transparent;
+	border-bottom: none;
+}
+h1:first-child, .h1:first-child {
+	margin: 0 0 1rem;
+}
+h2, .h2, h2 > a, .h2 > a, h2 > em, .h2 > em {
+	font-size: 1.6rem;
+	font-weight: 400;
+	margin: 1.2rem 0 0;
+	text-decoration: underline;
+}
+h3, .h3, h3 > a, .h3 > a, h3 > em, .h3 > em {
+	font-size: 1.2rem;
+	font-weight: 400;
+	color: #296BA3;
+	margin: 1rem 0 0.5rem;
+}
+body {
+	display: table;
+}
+.page-row {
+	display: table-row;
+	width: 100%;
+	height: 1px;
+}
+.page-row > * {
+	padding: 1rem;body > section,
+	#page_auth,
+	#page_loading,
+	#page_cards {
+	  text-align: center;
+	}
+	#page_auth p {
+		width: 80vw;
+		margin: 1em auto;
+		text-align: left;
+	}
+}
+.page-row > h1 {
+	position: relative;
+}
+.page-row > h2, .page-row > h3 {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.page-row-expanded {
+	height: 100%;
+}
+
+
+@media (min-width: 500px) {
+	#page_auth p {
+		width: 500px;
+	}
+	body > section > * {
+		margin-left: auto;
+		margin-right: auto;
+		text-align: left;
+		min-width: 500px;
+	}
+}
+header,
+footer {
+	text-align: center;
+}
+header h1 {
+	position: relative;
+}
+header h1 button.control {
+	position:absolute;
+	right: 2em;
+	font-size: 1rem;
+}
+footer.page-row > * {
+	padding-top: 3em;
+}
+
+input,
+textarea {
+	background: white;
+	border: 1px solid #296BA3;
+}
+
+button {
+	color: #802805;
+	background: #F08855;
+	border: 1px solid #802805;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.row {
+	display: table-row;
+}
+
+.row label,
+.row input,
+.row textarea,
+.row button {
+	display: table-cell;
+	vertical-align: top;
+}
+
+.row label {
+	padding: 1em;
+}
+
+.row input,
+.row textarea,
+.row button {
+	margin: 1em;
+	padding: 0.25em;
+	padding-left: 0.5em;
+}
+
+.row button {
+	margin: 1em;
+	padding: 0.25em 0.5em;
+}
+
+.row:last-child {
+	text-align: right;
+}

@@ -1,0 +1,13 @@
+{
+    "name": "dmcblue/collab-poetry",
+    "type": "project",
+    "authors": [
+        {
+            "name": "dmcblue",
+            "email": "dmcblue@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.3"
+    }
+}

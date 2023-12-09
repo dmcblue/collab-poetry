@@ -1,0 +1,123 @@
+{
+	"version": "0.4.0",
+
+	"lookupCommand": "which",
+	"windows": {
+		"lookupCommand": "where"
+	},
+
+	"requirements": [{
+		"name": "git",
+		"command": "git"
+	},{
+		"name": "composer",
+		"command": "composer",
+		"testArgument": "--version"
+	},{
+		"name": "php",
+		"command": "php",
+		"testArgument": "--version"
+	},{
+		"name": "nvm",
+		"command": "nvm",
+		"testArgument": "--version"
+	},{
+		"name": "copy",
+		"command": "cp",
+		"windows": {
+			"command": "copy",
+			"testArgument": "/?"
+		}
+	},{
+		"name": "Inkscape",
+		"command": "inkscape"
+	}],
+
+	"tasks": [{
+		"name": "init:php",
+		"description": "Installs php libraries",
+		"groups": [{
+			"name": "init",
+			"rank": 1
+		}],
+		"command": "composer",
+		"arguments": ["install"]
+	},{
+		"name": "init:env",
+		"description": "Makes default .env file",
+		"groups": [{
+			"name": "init",
+			"rank": 2
+		}],
+		"command": "cp",
+		"arguments": [".env.template", ".env"]
+	},{
+		"name": "init:node:install",
+		"description": "Installs node",
+		"groups": [{
+			"name": "init",
+			"rank": 3
+		}],
+		"command": "nvm",
+		"arguments": ["install"]
+	},{
+		"name": "init:node:use",
+		"description": "Uses node",
+		"groups": [{
+			"name": "init",
+			"rank": 4
+		}],
+		"command": "nvm",
+		"arguments": ["use"]
+	},{
+		"name": "init:node:npm",
+		"description": "Install packages",
+		"groups": [{
+			"name": "init",
+			"rank": 5
+		}],
+		"command": "npm",
+		"arguments": ["install"]
+	},
+
+	{
+		"name": "build:js",
+		"description": "JS",
+		"groups": [{
+			"name": "build",
+			"rank": 1
+		}],
+		"command": "npx",
+		"arguments": [
+			"browserify",
+			"web.js",
+			"-o",
+			"public/index.js"
+		]
+	}, {
+		"name": "build:html",
+		"description": "Builds the static website",
+		"groups": [{
+			"name": "build",
+			"rank": 2
+		}],
+		"command": "php",
+		"arguments": [
+			"build.php"
+		]
+	},
+
+	{
+		"name": "serve",
+		"description": "Serves the static website",
+		"groups": [{
+			"name": "serve",
+			"rank": 1
+		}],
+		"command": "php",
+		"arguments": [
+			"-S", "0.0.0.0:8024",
+			"-t", "public"
+		]
+	}]
+}
