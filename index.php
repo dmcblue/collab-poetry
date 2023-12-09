@@ -139,6 +139,7 @@
 							{ header: 'id', dataKey: 'id' },
 							{ header: 'Theme', dataKey: 'theme' },
 							{ header: '# Syllables', dataKey: 'range' },
+							// { header: 'Sound', dataKey: 'rhyme' },
 							{ header: 'Rhymes With', dataKey: 'rhymesWith' },
 							{ header: '', dataKey: 'text' },
 						],
