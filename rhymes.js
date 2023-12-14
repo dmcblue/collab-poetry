@@ -55,7 +55,7 @@ rhymes['i:'] = [
 ];
 rhymes['ɑ:'] = [
     'hard',
-    'article',
+    'art',
     'park'
 ];
 rhymes['ɔ:'] = [
